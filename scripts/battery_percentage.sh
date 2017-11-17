@@ -11,7 +11,7 @@ print_battery_percentage() {
 	elif command_exists "upower"; then
 		battery=$(upower -e | grep battery)
 		percentage=$(upower -i $battery | awk '/percentage:/ {print $2}')
-		echo $percentage%
+		echo $percentage
 	elif command_exists "acpi"; then
 		acpi -b | grep -Eo "[0-9]+%"
 	fi
